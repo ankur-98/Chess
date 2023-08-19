@@ -214,7 +214,7 @@ class ChessBoard:
         if not self.is_check(color):
             return False
         king = self.get_piece("king", color)
-        for move in self.legal_moves(self.board):
+        for move in king.legal_moves(self.board):
             temp_board = self.copy()
             temp_board.move_piece(king.position, move)
             if not temp_board.is_check(color):
