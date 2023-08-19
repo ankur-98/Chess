@@ -26,7 +26,7 @@ class Game:
                 move_to = tuple(map(int, move_to.split()))
                 piece = self.board.get_piece_at(move_from)
                 
-                if piece and piece.color == self.current_color and move_to in piece.legal_moves(self.board.board):
+                if piece and piece.color == self.current_color and move_to in piece.legal_moves(self.board):
                     self.board.move_piece(move_from, move_to)
                     if self.board.is_checkmate("white" if self.current_color == "black" else "black"):
                         print("Checkmate!")
@@ -37,8 +37,7 @@ class Game:
             except Exception:
                 print("Invalid input. Try again.")
 
-    @staticmethod
-    def get_input(prompt: str) -> str:
+    def get_input(self, prompt: str) -> str:
         """
         Prompts the user for input and returns the input as a string.
 

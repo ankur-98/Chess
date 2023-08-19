@@ -8,11 +8,11 @@ class Piece:
 
     Attributes:
     - color (str): The color of the piece, either "white" or "black".
-    - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
-    - symbol (str): The symbol representing the piece on the board.
+    - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
+    - symbol (str): The symbol representing the piece on the board.board.
 
     Methods:
-    - legal_moves(board: Dict[Tuple[int, int], "Piece"]]) -> Set[Tuple[int, int]]: Returns a set of legal moves for the piece on the given board.
+    - legal_moves(board: object]) -> Set[Tuple[int, int]]: Returns a set of legal moves for the piece on the given board.board.
     """
 
     def __init__(self, color: str, position: Tuple[int, int]):
@@ -21,7 +21,7 @@ class Piece:
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         self._color = color
         self._position = position
@@ -46,7 +46,7 @@ class Piece:
         Returns the position of the piece.
 
         Returns:
-        - (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         return self._position
 
@@ -56,37 +56,37 @@ class Piece:
         Sets the position of the piece.
 
         Parameters:
-        - value (tuple): The new position of the piece on the board, represented as a tuple of integers (row, column).
+        - value (tuple): The new position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         self._position = value
 
     @property
     def row(self) -> int:
         """
-        Returns the row of the king on the board.
+        Returns the row of the king on the board.board.
 
         Returns:
-        - row (int): The row of the king on the board.
+        - row (int): The row of the king on the board.board.
         """
         return self.position[0]
 
     @property
     def col(self) -> int:
         """
-        Returns the column of the king on the board.
+        Returns the column of the king on the board.board.
 
         Returns:
-        - col (int): The column of the king on the board.
+        - col (int): The column of the king on the board.board.
         """
         return self.position[1]
 
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the piece on the board.
+        Returns the symbol representing the piece on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the piece on the board.
+        - symbol (str): The symbol representing the piece on the board.board.
         """
         return self._symbol
 
@@ -99,15 +99,15 @@ class Piece:
         """
         return f" {self._symbol} "
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
-        Returns a set of legal moves for the piece on the given board.
+        Returns a set of legal moves for the piece on the given board.board.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board, with tuples as keys and Piece objects as values.
+        - board.board (dict): A dictionary representing the current state of the chess board.board, with tuples as keys and Piece objects as values.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the piece on the given board.
+        - moves (set): A set of tuples representing the legal moves for the piece on the given board.board.
         """
         raise NotImplementedError("legal_moves method not implemented")
 
@@ -119,10 +119,10 @@ class Piece:
         Returns a set of legal diagonal moves.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal diagonal moves for the given board.
+        - moves (set): A set of tuples representing the legal diagonal moves for the given board.board.
         """
         moves = set()
         row, col = self.position
@@ -146,10 +146,10 @@ class Piece:
         Returns a set of legal horizontal and vertical moves.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal horizontal and vertical moves for the given board.
+        - moves (set): A set of tuples representing the legal horizontal and vertical moves for the given board.board.
         """
         moves = set()
         row, col = self.position
@@ -173,7 +173,7 @@ class Piece:
         Returns a set of legal forward moves for the pawn.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
         - moves (set): A set of tuples representing the legal forward moves.
@@ -205,7 +205,7 @@ class Pawn(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♙" if color == "white" else "♟︎"
@@ -213,10 +213,10 @@ class Pawn(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the pawn on the board.
+        Returns the symbol representing the pawn on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the pawn on the board.
+        - symbol (str): The symbol representing the pawn on the board.board.
         """
         return self._symbol
 
@@ -234,20 +234,20 @@ class Pawn(Piece):
         return moves
          
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the pawn.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the pawn on the given board.
+        - moves (set): A set of tuples representing the legal moves for the pawn on the given board.board.
         """
         moves = set()
         
-        moves |= self._get_forward_moves(board)
-        moves |= self._get_capture_moves(board)
+        moves |= self._get_forward_moves(board.board)
+        moves |= self._get_capture_moves(board.board)
 
         return moves
 
@@ -263,7 +263,7 @@ class Knight(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♘" if color == "white" else "♞"
@@ -271,22 +271,22 @@ class Knight(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the knight on the board.
+        Returns the symbol representing the knight on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the knight on the board.
+        - symbol (str): The symbol representing the knight on the board.board.
         """
         return self._symbol
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the knight.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the knight on the given board.
+        - moves (set): A set of tuples representing the legal moves for the knight on the given board.board.
         """
         moves = set()
         row, col = self.position
@@ -294,7 +294,7 @@ class Knight(Piece):
         for row_offset, col_offset in ((-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1)):
             move_pos = (row + row_offset, col + col_offset)
             if move_pos[0] in range(BOARD_SIZE) and move_pos[1] in range(BOARD_SIZE):
-                if move_pos in board and (move_piece := board[move_pos]).color == self.color:
+                if move_pos in board.board and (move_piece := board.board[move_pos]).color == self.color:
                     continue
                 else:
                     moves.add(move_pos)
@@ -313,7 +313,7 @@ class Bishop(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♗" if color == "white" else "♝"
@@ -321,24 +321,24 @@ class Bishop(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the bishop on the board.
+        Returns the symbol representing the bishop on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the bishop on the board.
+        - symbol (str): The symbol representing the bishop on the board.board.
         """
         return self._symbol
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the bishop.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the bishop on the given board.
+        - moves (set): A set of tuples representing the legal moves for the bishop on the given board.board.
         """
-        return self._get_diagonal_moves(board)
+        return self._get_diagonal_moves(board.board)
 
 
 class Rook(Piece):
@@ -352,7 +352,7 @@ class Rook(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♖" if color == "white" else "♜"
@@ -360,24 +360,24 @@ class Rook(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the rook on the board.
+        Returns the symbol representing the rook on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the rook on the board.
+        - symbol (str): The symbol representing the rook on the board.board.
         """
         return self._symbol
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the rook.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the rook on the given board.
+        - moves (set): A set of tuples representing the legal moves for the rook on the given board.board.
         """        
-        return self._get_horizontal_and_vertical_moves(board)
+        return self._get_horizontal_and_vertical_moves(board.board)
 
 
 class Queen(Piece):
@@ -391,7 +391,7 @@ class Queen(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♕" if color == "white" else "♛"
@@ -399,26 +399,26 @@ class Queen(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the queen on the board.
+        Returns the symbol representing the queen on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the queen on the board.
+        - symbol (str): The symbol representing the queen on the board.board.
         """
         return self._symbol
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the queen.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the queen on the given board.
+        - moves (set): A set of tuples representing the legal moves for the queen on the given board.board.
         """
         moves = set()
-        moves |= self._get_diagonal_moves(board)
-        moves |= self._get_horizontal_and_vertical_moves(board)
+        moves |= self._get_diagonal_moves(board.board)
+        moves |= self._get_horizontal_and_vertical_moves(board.board)
         return moves
 
 
@@ -433,7 +433,7 @@ class King(Piece):
 
         Parameters:
         - color (str): The color of the piece, either "white" or "black".
-        - position (tuple): The position of the piece on the board, represented as a tuple of integers (row, column).
+        - position (tuple): The position of the piece on the board.board, represented as a tuple of integers (row, column).
         """
         super().__init__(color, position)
         self._symbol = "♔" if color == "white" else "♚"
@@ -441,22 +441,22 @@ class King(Piece):
     @property
     def symbol(self) -> str:
         """
-        Returns the symbol representing the king on the board.
+        Returns the symbol representing the king on the board.board.
 
         Returns:
-        - symbol (str): The symbol representing the king on the board.
+        - symbol (str): The symbol representing the king on the board.board.
         """
         return self._symbol
 
-    def legal_moves(self, board: Dict[Tuple[int, int], "Piece"]) -> Set[Tuple[int, int]]:
+    def legal_moves(self, board: object) -> Set[Tuple[int, int]]:
         """
         Returns a set of legal moves for the king.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - moves (set): A set of tuples representing the legal moves for the king on the given board.
+        - moves (set): A set of tuples representing the legal moves for the king on the given board.board.
         """
         moves = set()
         row, col = self.position
@@ -464,40 +464,40 @@ class King(Piece):
         # Check for adjacent moves
         for row_offset, col_offset in ((-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)):
             move_pos = (row + row_offset, col + col_offset)
-            if move_pos in board and (move_piece := board[move_pos]).color != self.color:
+            if move_pos in board.board and (move_piece := board.board[move_pos]).color != self.color:
                 moves.add(move_pos)
 
         return moves
 
-    def is_in_check(self, board: Dict[Tuple[int, int], "Piece"]) -> bool:
+    def is_in_check(self, board: object) -> bool:
         """
-        Returns True if the king is in check on the given board, False otherwise.
+        Returns True if the king is in check on the given board.board, False otherwise.
 
         Parameters:
-        - board (ChessBoard): A ChessBoard object representing the current state of the chess board.
+        - board.board (ChessBoard): A ChessBoard object representing the current state of the chess board.board.
 
         Returns:
-        - is_check (bool): True if the king is in check on the given board, False otherwise.
+        - is_check (bool): True if the king is in check on the given board.board, False otherwise.
         """
-        for piece in board.get_all_pieces(self.color):
-            if piece.color != self.color and self.position in piece.legal_moves(board):
+        for piece in board.board.get_all_pieces(self.color):
+            if piece.color != self.color and self.position in piece.legal_moves(board.board):
                 return True
         return False
 
-    def is_in_checkmate(self, board: Dict[Tuple[int, int], "Piece"]) -> bool:
+    def is_in_checkmate(self, board: object) -> bool:
         """
-        Returns True if the king is in checkmate on the given board, False otherwise.
+        Returns True if the king is in checkmate on the given board.board, False otherwise.
 
         Parameters:
-        - board (dict): A dictionary representing the current state of the chess board.
+        - board.board (dict): A dictionary representing the current state of the chess board.board.
 
         Returns:
-        - is_checkmate (bool): True if the king is in checkmate on the given board, False otherwise.
+        - is_checkmate (bool): True if the king is in checkmate on the given board.board, False otherwise.
         """
-        if not self.is_in_check(board):
+        if not self.is_in_check(board.board):
             return False
-        for move in self.legal_moves(board):
-            new_board = dict(board)
+        for move in self.legal_moves(board.board):
+            new_board = dict(board.board)
             new_board[self.position], new_board[move] = None, self
             if not self.is_in_check(new_board):
                 return False
