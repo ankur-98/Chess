@@ -1,6 +1,8 @@
 # Chess Game
 This is a simple implementation of the game of chess in Python. It allows two players to take turns making moves on a standard 8x8 chess board until one player is in checkmate.
 
+![demo](readme/demo.png)
+
 ## Getting Started
 To run the game, simply run the game.py file in your Python environment. The game will prompt each player to enter their moves in turn, and will validate the moves to ensure they are legal.
 
