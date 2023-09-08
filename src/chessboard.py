@@ -232,7 +232,7 @@ class ChessBoard:
         - is_checkmate (bool): True if the given color is in checkmate, False otherwise.
         """
         king = self.get_piece("king", color)
-        for piece in self.board.get_all_pieces(color):
+        for piece in self.get_all_pieces(color):
             if piece.color != color and king.position in piece.legal_moves(self.board):
                 return True
         return False
